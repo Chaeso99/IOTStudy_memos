@@ -1,0 +1,10 @@
+23.02.14(화)
+https://velog.io/@yu-jin-song/JAVA-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%83%9D%EC%84%B1-%EB%B0%8F-%ED%81%AC%EA%B8%B0-%EC%A1%B0%EC%A0%88
+자바 이미지생성 및 크기 조절
+
+https://leirbag.tistory.com/15
+자바 둥근버튼
+
+시험 두가지 진행함
+
+DB연결 예제 진행(SQLTest.java)

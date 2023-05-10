@@ -1,0 +1,74 @@
+23.01.20(금)
+<오전수업>
+오늘 DB연동 할것임 동적으로 데이터 사용이 가능 DB 순위:Oracle, MySQL, Microsof SQL Server 순
+우리는 오늘 MySQL 쓸것임(8.대 버전) 			ㄴ셋다 Relational(관계형) 데이터베이스
+세 데이터베이스는 거의 비슷함. CRUD(Create Read Update Delete)는 거의 같다.
+DB연동회원관리 프로그램
+
+프로그램에 우편번호 검색 기능을 넣어볼것임 방법이 2가지
+1.카카오에서 제공하는 우편번호 검색 기능 사용(아무 제약 없음)
+-장점:업데이트를 신경안써도됨   -단점:디자인이 내 기능과 안맞을수도 있음
+
+2.우정사업본부-우편번호찾기-우편번호내려받기에서 
+직접 데이터를 내려받아서 저장시키는 방법(우리가 사용)
+
+데이터베이스 서버는 항상 돌아가고 있어야됨. 서버는 눈에는 보이지 않음, 서버에 접속하는 프로그램은
+따로 필요함(HeidiSQL이 대표적)
+
+서버는 네트워크 서비스라서 포트(Port) 번호가 있음 웹서버의 디폴트 포트번호는 80번(생략가능)
+mysql의 디폴트 포트번호는 3306(변경가능) 서버는 관리를 위한 계정이 있어야된다. (MYSQL은Root를 많이 씀)
+내PC에서 돌아가는 서버는 내PC에 접속은 가능, 다른IP가 들어오면 서버접근이 막혀있음
+
+서로다른 프로그램이 통신하려면 서로의 정보를 알아야됨 그 정보가 포함된 클래스가 Connector/J <-mysql에서
+자바에선 Driver 클래스임
+
+서버는 클라이언트의 요청에 응답만 함
+
+쿼리(시퀄)문:대화하듯이 명령어를 사용하는 것
+
+database는 폴더, table은 파일같은 개념
+
+<MySQL 설치>
+홈페이지에서 인스톨러 다운로드->Developer Default->next->yes->execute->next->ok
+->User name에 admin, Password에 1234 입력:Check버튼이 안눌릴경우 설치창 닫고 인스톨러 재시작
+->add->servers-server-8.0-8.0.32x64 오른쪽으로 보내기->next->execute->동의함,설치->next->execute
+->next 계속 눌러서 Type and Networking 화면까지 진행->next->next->비밀번호 지정(우린 1234 사용)
+->Windows Service 화면에서 Window Service Name이 우리가 윈도우에서 이 프로그램을 관리할때 사용하는
+이름임->Start the MySQL Server at System Startup:컴켜면 자동실행 옵션임.->next 몇번 누르고 execute
+->Finish랑 next 몇번 눌러서 하얀화면까지 나오기->인스톨러종료
+
+<MySQL 사용>
+윈도우에서 MySQL 커맨드라인 켜기->비번(1234)입력->명령어 사용. 명령어 끝에는 반드시 ; 들어가야함
+
+<HeidiSQL 설치>
+그냥 next등 쭉쭉 눌러서 설치 진행하면 됨 finish 누르면 인스톨러 끝나면서 프로그램 실행됨
+
+<SQL문법>
+MySQL의 문자열은 ''안에 들어감 쌍따옴표 아니고 홑따옴표
+primary key:유니크한 속성을 가짐(중복 불가)
+auto_increment(1,2):자동증가
+not null:반드시 입력되어야 하는 값
+
+<MemberMgr.java>
+jar는 자바에서 만든 압축파일 확장자임 이걸 연결시켜줘야 외부프로그램 사용가능 myjava의 프로퍼티에
+들어가서 Java build path - Libraries - Classpath에 add external jars 선택 후
+C:\Program Files (x86)\MySQL\Connector J 8.0 에 있는 jar 파일 넣기
+
+classpath 설정
+1. JDK or JRE ->기본 클래스들이 존재함
+2. 현재 실행하는 class는 JVM이 인식함
+3. 외부 클래스들->.jar 파일로 압축이 되어있음(.zip도 가능)
+
+<오후수업>
+테이블 두개 만들수있는 쿼리문, 서울 우편번호
+
+프로젝트 파일 관리할때 sql문 파일도 같이 넣어둬야한다.
+
+자바가 요청해서 데이터베이스 연결을 먼저 해야함->자바가 던진 쿼리문의 대답을 데이터베이스가 줌->종료
+위 과정의 반복
+자바에서 테이블을 사용할때 한 줄의 각 변수에 대한 값을 저장하는걸 반복하면 테이블이 됨
+ㄴbeans <-라고 부름, 우리가 만들거임
+
+jpa라는 기술은 beans가 실행하는 테이블을 자동으로 만들어준다.
+
+배열과 Vector 밑에는 항상 for문 존재

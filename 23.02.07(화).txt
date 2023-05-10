@@ -1,0 +1,59 @@
+23.02.07(화)
+<오전수업>
+INSERT UPDATE DELETE
+트리거
+캐스캐이딩
+조인/서브쿼리 연습
+SQL 문제풀이
+
+실무에서는 유저가 삭제되어도 게시글 안날리는 경우가 많음 회원탈퇴 해도 유저정보 3개월정도
+보관하고 있다가 기간 종료 후에 완전히 삭제하는 경우가 많다. DELETE를 잘 안쓰고 UPDATE로
+DELETEDATE 등을 보관함
+실무에서 constraint 이름은 USER_UN_TEL 처럼 자세히 분류해서 적기
+데이터베이스에 값은 문자열로 넣어야된다
+
+시퀀스의 인크리먼트를 반대로 하는 경우:DB역으로 인덱싱이 안되어서
+현재value:0 min value:0 increment:-1 로 써서 빨리 찾는 경우도 있음
+보통은 1, 1, 1 사용 시퀀스도 SAVE->PERSIST 해줘야 적용됨!!
+
+보통 DELETE FROM 보다 TRUNCATE TABLE 을 많이 사용함 TRUNCATE는 초기화라서 제약조건을
+지우고 해야 가능
+
+시퀀스나 오토 인크리먼트는 쿼리가 실패해도 값이 증가해버리는 문제가 있음
+
+우리 예제에서는 게스트북이 작동되어야 트리거가 작동되어서 로그에 값이 들어가니까
+트리거는 게스트북 아래에 만들어진다!
+
+ORACLE JOIN 보다 ANSI JOIN 방식 사용하는것을 추천
+
+자바 스윙 프로젝트 할때 윈도우빌더 라는 프로그램을 사용하면 코드 대신 GUI를 통해서 짤 수 있음
+ㄴ유광열강사님 블로그에 자바로 쿠키런 만드는 예제 있음
+
+유튜브 메타코딩 채널의 자바swing프로젝트-책 주문 프로젝트 영상 참고
+
+코파일럿<-chatgpt같은 인공지능 코딩 프로그램
+
+오라클에선 limit 못쓰니까 rownum 쓰기
+https://gent.tistory.com/254
+
+<디비버에 chatgpt 연동하기>
+1. gmail 없는사람은 생성
+2. dbeaver 도움말
+(check for updates)
+3. dbeaver 도움말
+(install new software)
+4. gpt 검색 (dbeaver AI)+ 설치 + unsigned trust
+5. https://chat.openai.com/chat
+6. dbeaver sql 편집기 탭에서+ ctrl + i
+7. api key 생성 입력
+8. dbeaver + ctrl + i
+
+앞으로 배울것:html css/자스/데이터베이스 <=복습
+자스 객체/메소드 추가설명
+화살표 함수 등 문법 설명
+게임 등 객체 프로젝트를 통한 분석
+라이브러리 활용 방법
+(더 알고싶은것, 내 목표가 ~~인데 어떻게 어디서 공부? 같은거 질문하기)
+
+회사에서 일할때 코드나 라이브러리 가져다 쓸 경우 라이센스 잘 확인하고 사용하기
+(재배포 가능한지, 재공개 해야하는지 등)

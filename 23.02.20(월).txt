@@ -1,0 +1,50 @@
+23.02.20(월)
+<강사님 당부>
+클래스는 반드시 대문자로 시작 //refactor 기능 사용해서 한번에
+변수(필드, 지역변수)는 소문자로 시작, 카멜케이스로
+상수는 대문자로
+Statement사용하지 말고 pool기법으로 DB연결(PrepareStatement)
+
+쿼리문 들어가는 모든곳에 DB닫는거 넣기
+finally 
+		{
+			rs.close();
+			rs2.close();
+			pstmt.close();
+			con.close();
+		}
+<TODO>
+작업진행도 확인/DB 및 프로젝트 파일 동기화
+DB연결 PSTMT(PrepareStatement)형식으로 변경 (완료)
+좌석정보DB연동(완료)
+회원정보 패널 DB연동
+관리자로그인화면에 뒤로가기 버튼 추가해서 누르면 처음화면으로 가도록 하기 
+(완료)
+
+변경한 파일- ManagerLogin, ManagerMain, FindManagerName, DBConnect2, FindSeatTable
+,ManagerLoginEvent2
+
+ManagerMain, FindUseTable, FindMemberTable, FindSeatTable, ManagerLogin, FirstDisplay
+--------------------------------------------------------------------------------
+프로젝트를 하면 IDE(이클립스, VSCODE등)을 쓰는데
+프로젝트별로 설정파일 또는 폴더가 생김
+설정파일이 다른 팀원에게 갔을 때 에러가 발생함
+처음 프로젝트 파고 첫 add 직전에 .gitignore를 만들어서 설정해야함
+예를들어 이클립스 워크스페이스 폴더의 myJava안의 .settings
+, .project, .vscode 등등
+.gitignore 내용에서 * 붙은부분은 그 부분의 어떤 내용이 들어가든 포함
+*.ini 는 .ini 로 끝나는 모든 파일이라는 의미
+
+<깃에 안올릴 파일 선택하는법>
+.git있는 폴더안에 .gitignore 파일 만듬(확장자 지운 txt파일)
+메모장으로 .gitignore 켜서 내용에
+/제외폴더명
+제외파일명.확장자
+적고 저장하고 push하면 내용에 적은애들은 push안됨
+이미 올라가버린 폴더나 파일을 내리려면 해당 파일을 지우고 ignore에 추가
+--------------------------------------------------------------------------------
+<깃 브랜치 쓰기>
+1. master
+2. branch (master 이외의 개인 버전->master와 합칠거임)
+3. pullrequest
+---------------------------------------------------------------------------------

@@ -1,0 +1,17 @@
+23.02.03(금)
+<오전수업>어제하던 채팅v2- ChatClient2, ChatServer2 계속 진행
+귓속말, 쪽지, 채팅 저장 기능 추가됨
+
+채팅v3.0-heidiSQL에서 Table 두개 만들것 테이블 만들때 사용하지 않더라도
+regdate, updatedate가 들어가는게 일반적임(JSP등을 이용해 편하게 작업하기 위해)
+regdate는 등록일시, updatedate는 마지막 업데이트 일시임
+
+이클립스에서도 sql문을 파일로 만들어 간단한 데이터베이스 기능을 사용할 수 있음.
+
+MessageBean.java <-Beans 파일 만들었음 이름에 Beans 대신 DTO나 VO가 사용되는 경우가 있는데
+이 둘은 스프링 에서 사용하는 파일 타입임 JSP까지는 이름을 Bean이라고 짓자(공식피셜이름이니까)
+
+<오후수업>채팅v3 파일들 작성
+클래스 패스 설정:내PC->속성->고급 시스템 설정->환경 변수->시스템 변수에 변수:classpath
+값:.;C:\Program Files (x86)\MySQL\Connector J 8.0\mysql-connector-j-8.0.32.jar;
+추가(이클립스 새로켜야 적용됨)

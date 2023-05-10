@@ -1,0 +1,30 @@
+23.05.09(화)
+스프링 시큐리티 ppt의 
+스프링 시큐리티 구동방식 페이지에서 Authentication안의 내용들은 알아야한다.
+jsp의 세션이 spring의 Authentication이다. 구조는 복잡한데 우리가 직접 짜야하는 내용은 많이 없음. ㄴ id 비번을 받아서 유저객체(UserDetails)를 만드는 구조임
+
+mybatis는 매개변수를 두개 못받음 파라미터 타입이 한가지밖에 안되기때문
+db세팅하고나서 해줘야하는것 - entity, repository 만들기(mapper는 나중에 만들어도 됨)
+
+f87581a4-4405-4165-902c-6d40c369283d //스프링이 콘솔에 띄운 비밀번호(프로젝트 재실행마다 바뀜)
+ㄴ 이거 비번이 매번 바뀌는거 번거로움:resources폴더 안의 application.yml 파일에서 #JSP 경로 설정 밑에 spring:
+  security:
+    user:
+      name: test
+      password: 123 
+이렇게 적음 이부분들은 개발 후에는 지워줘야된다 개발용 임시 id/비번이라고 생각하면됨
+
+Common/Security/SecurityConfig.java 파일 만듬
+스프링부트 2.x버전부터 바뀐 새로운 방식(회사에서는 이방식말고 예전방식 쓸수도 있음)
+ httpSecurity.formLogin(config -> config
+                .defaultSuccessUrl("/todoList")); //우리처럼 기본페이지가 없는 사이트
+코드들 넣고 처음에 http://localhost:6060 으로 접속 ->로그인페이지에서 로그인-> 로그인 성공하면 todoList 페이지로 가야하는데 안감                 .defaultSuccessUrl("/todoList", true));
+이부분에 true가 들어가야 우리가 원하는대로 동작함
+
+sql을 자바로 쓰고싶은데 mapper.xml파일로 sql을 편하게 만들어놓고(더하기 등 없이 적을수있어서 좋음) 자바코드에서 사용할때는 repository 파일을 통해 mapper파일의 내용을 불러와서 편하게 사용
+
+로그인, 회원가입 페이지는 인증이 필요 없도록 만들어야된다.
+회원가입할때 admin 권한은 넣을수 없도록 해야함. admin은 무조건 DB에서 설정하게 해야함
+
+          "Content-Type" : "application/json;charset=utf-8"
+위 한줄은 기억하기(join.jsp의 rest통신 부분에 들어가는 코드)

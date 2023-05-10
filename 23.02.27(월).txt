@@ -1,0 +1,73 @@
+23.02.27(월)
+<프로젝트>
+-TODO-
+Pay, Pay2 이미지파일/html 경로 수정 필요(완료)
+UserMain의 남은시간 OO시->OO시간 으로 수정(단순)
+UserMain에서 자리번호 뜨도록 연동해오기(완료)
+남은시간 없으면 입실 안되도록 하기(후순위)
+남은시간 없으면 자동퇴실(후순위)
+카드결제창 안뜸(완료)
+퇴실하기 버튼 누를때 널포인트 에러 해결(FindUseTable의 usetimeC) (완료)
+ㄴfindIntime값이 null/usenumReturn값이 0으로 들어가고 있음
+ㄴfindUse의 seatnum도 0으로 들어감
+ㄴUsermainUI의 479번줄String usenum = fut.findUse(Integer.parseInt(num)); 으로 수정
+fst.seatUpdate 부분도 fst.seatUpdate(Integer.parseInt(num), 0); 로 수정
+발표관련 협의 필요
+
+
+남은시간 없으면 자동퇴실(신기한)
+남은시간 없으면 입실불가(채기주)-완료
+결제 관련 코드 및 DB수정(김종석)-완료
+PayCharge 파일 완전삭제 및 PayEnter(결제/입실 선택화면)화면위쪽 안내텍스트
+수정 불가능하게 만들기(박유진)-완료
+
+일정:화요일까지 프로젝트 완성(기능완성, 파일정리, 자막/클래스/변수/메소드 이름 확인) 
+화요일에 발표준비 관련 회의
+수요일 발표준비
+목요일 오전 발표자료 확인 및 수정
+목요일 오후 발표자료 제출 및 발표
+-----------------------------------------------------------------------------------------------
+<수업>
+-오전-
+수업시작~지금까지 중 다시 듣고싶은 내용 복습(html, JS, Java)
+화살표 함수(JS, Java)
+const let var 스코프:자스 선언할때는 const 우선 사용=>let 사용=>정 안되면 var 사용
+this
+forEach
+for/while 차이점
+인터페이스/Abstract
+promise
+이벤트
+1급 객체
+Bean/VO/DTO/DAO
+1.Bean
+- OS(윈도우, 맥, ...)등에서 데이터를 전달할 목적으로 만드는 class (getter/setter 등 포함)
+- 스프링에서는 개발자가 아니라 스프링이 관리하는 객체를 이야기한다.
+- 이외의 상황에서는 일반적인 데이터를 담고 있는 자바 객체다(즉, 현실의 물건이나 사람
+등을 추상화 시킨 것이 아니라 데이터 자체를 모아두기 위한 객체)
+
+2.VO
+- Value Object
+- 데이터를 모아두기 위한 객체
+
+3.DTO //요즘 DTO로 통용해서 많이 사용함
+- Data Transfer Object
+- VO와 비슷함
+- 계층(DB/화면/서비스 등등..)마다 데이터를 전달할 목적으로 만듬
+
+4.
+
+자바 세팅:
+VSCODE에서 컨트롤 쉬프트 P 누르고 Create Java Project 누르고 No build tools
+Alt Insert=>Generate constructor=>선택후 누르면 생성자 생김
+
+자스 세팅:
+jsstudy 폴더(VSCODE로 켜기)
+
+스프링은 VSCODE/JSP는 이클립스로 할것임
+-오후-
+flutter/Spring boot 둘중 하나 시작
+
+남은 과정
+정동진선생님:JSP(서버, 웹)/IOT(간단)
+유광열선생님:flutter(앱)/Springboot(서버, 웹)

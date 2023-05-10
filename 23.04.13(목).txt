@@ -1,0 +1,18 @@
+23.04.13(목)
+브라우저 개발자 도구의 Sources에서 확인했을때 script.js등 js파일이 갱신이 안되는 경우 브라우저의 인터넷 사용 기록 삭제에서 캐시 데이터를 날리고 새로고침하면 로딩된다.
+
+<script>
+		 function loginCheck(){
+		if(document.loginFrm.Login_Id.value==""){
+			alert("아이디를 입력해 주세요.");
+			document.loginFrm.memberId.focus();
+			return;
+		}
+		if(document.loginFrm.Login_Pw.value==""){
+			alert("비밀번호를 입력해 주세요.");
+			document.login.memberPw.focus();
+			return;
+		}
+		document.login.submit();
+	}
+</script>

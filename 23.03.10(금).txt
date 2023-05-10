@@ -1,0 +1,77 @@
+23.03.10(금)
+JSP의 내부(내장)객체(JSP 컨테이너가 제공함)
+선언하지않고 사용 가능, 스크립트릿 내부에서 내부 객체와 동일한 변수명 선언 불가능
+사용되는 범주에 따라 입출력/외부환경정보 제공/서블릿 관련/예외 관련 4가지로 나뉨
+request, response, out, session, application, pageContext, page, config, exception
+exception을 제외한 나머지의 타입은 javax.servlet.어쩌고저쩌고... javax는 자바 확장 이라는 뜻
+
+사용자가 입력해야하는 과정이 들어간 프로그램은 빈칸없이 기본값 넣어놓는게 좋음
+수정할때 기본값이 안들어가있으면 새ㅗㄹ 일일히 적어줘야하기 때문
+
+request2.jsp 파일에서 query는 null로 나오는데 주소창에 .jsp뒤에 ?name=aaa 라고 적으면
+query 부분에 name=aaa가 들어감
+
+서버 끄고 Run Configurations에
+Tomcat v9.0 ...의 Arguments에 VM arguments에
+-Djava.net.preferIPv4Stack=true 추가하면 ip값 정상적으로 읽어옴(getRemoteAddr() 이용)
+
+인터넷 페이지에 댓글 달려고 할때 로그인 페이지로 넘어갔다가 로그인 후 다시 원래 페이지로
+와야한다.(현재 접속되어있는 url값이 로그인페이지로 넘어옴)
+=>자스로 넘기는 방법/서버에서 바로 넘기는 방법 등이 있다.
+<!-- ch07/response1.jsp -->
+<%@page contentType="text/html; charset=UTF-8"%>
+<%
+		response.sendRedirect("response2.jsp");
+%>
+이방식을 가장 많이 사용한다.
+
+처리되는 페이지는 모두 Proc를 붙여서 작성
+DB찾는 페이지 등은 클라이언트에서 볼필요 없음 서버에서 돌아가고 클라이언트에는
+응답 결과 페이지 보여주면됨
+
+보통 NullPointerException, NumberFormatException 에러를 가장 많이 겪게됨
+
+인터넷에서 뒤로가기 버튼을 누르면 네트워크를 타고 안가고 이전에 봤던 화면이 캐시에
+남아있는데 그걸 통해서 이전화면을 띄움
+인터넷을 오래하면 느려지는 이유가 캐시가 계속 쌓여서 그럼
+캐시에 로그인 데이터는 안들어가야함
+캐시에 안들어갈 값을 설정할 수 있음.(response2.jsp 예제)
+
+자바스크립트는 클라이언트 브라우저에서 실행됨 서버에서 실행되진 않음(location1,location2.jsp)
+(1.jsp에서 요청받아서 1.jsp를 응답해줌=>2.jsp를 요청해서 2.jsp를 응답받음-두번 왕복)
+response1,response2.jsp는 서버에서 실행됨(1.jsp에서 요청받아서 2.jsp를 응답해줌-한번 왕복)
+둘이 결과는 같음 두번 왕복한다고 서버에 부담 안가니까 상황에 맞게 적당히 쓰기
+
+DB연동은 스프링까지 계속 이어지는 내용이기 때문에 아는 선에서 끝내지 말고 완벽히 마스터
+해서 남에게 설명가능할 정도까지 해야한다.
+--------------------------------------------------------------------------------------------------------
+ppt 9장 JSP와 자바빈즈
+속도, 기능적인 부분, 보안적인 부분 등 기능의 영역 외에도 프로그램을 잘 꾸미는것도 중요함
+
+데이터베이스 테이블의 스키마와 같은형식으로 만든것이 자바빈즈:DB연동을 위해서임
+1. 정보를 저장하는 변수는 모두 private로 선언
+2.setXxx()형식으로 위의 변수 값을 저장하는 메소드 만듬
+3.getXxx()위의 변수 값을 가져오는 메소드를 만듬
+4.setXxx(). getXxx()메소드를 public으로 선언
+
+테이블의 컬럼은 스무개가 넘어가는 경우가 많음 이 많은 컬럼을 한방에 빈즈에 저장해주는게
+setProperty(조건:빈즈를 정확히 만들어야한다.)
+
+input의 type "submit"은 자스를 통하지 않고 바로 제출 
+"button"은 자스 Onclick 이벤트리스너를 통해 function을 만들어서 제출해야함
+
+form이 여러개이면(폼 이름이 없을경우) 배열로 만들어서 forms[0]=>forms[1] ...식으로 된다.
+
+<jsp:useBean id="bean" class=ch09.SimpleBean /> 빈즈 뿐만 아니라 다른 일반적인 객체들도
+이런식으로 생성할 수 있다.
+---------------------------------------------------------------------------------------------------
+team.html
+ㄴnum(정수), name, city, age(정수), team 
+team.jsp
+TeamBean.java
+
+team.html에서 입력폼을 만들고
+team.jsp에서 useBean, setProperty, getProperty 
+TeamBean.java는 빈즈로 만든다.
+
+웹은 WEB-INF 밑의 lib 폴더에 외부 드라이버를 저장시켜야 배포할때도 같이 넘어감

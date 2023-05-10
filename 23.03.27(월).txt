@@ -1,0 +1,51 @@
+23.03.27(월)
+.gitignore 파일은 각 프로젝트 폴더마다 하나씩 있어야한다.
+ㄴ깃에 파일이 안올라갈 경우 (github의 code에 폴더는 보이는데 폴더에 화살표
+모양 보이면서 클릭이 안됨)폴더안에 .git 파일 있는지 확인, 있으면 지우고 해당 폴더 빼고
+add commit push 후 해당 폴더 깃헙에서 없어진거 확인하고 다시 넣고 add commit push
+
+//동적인 화면은 서버에서 데이터가 들어온다는 이야기임
+
+안드로이드 스튜디오에서 에러는 없는데 파일이 빨간색으로 나오는 이유:깃 버전때문에
+(.git 파일이 여러개거나 git add 등이 안된상태)
+
+<flutter_navigator_named_v2/flutter_navigator_named_v2_args 파일>
+first_page.dart:
+Navigator.pushNamed에서 데이터를 넘겨주고 싶을때는 매개변수로 
+arguments: 를 이용해서 보낸다.
+
+second_page.dart:
+ModalRoute.of에 네비게이터에서 보낸 정보들이 저장되어 있음.
+arguments로 데이터를 가져올 수 있다.
+WillPopScope(뒤로가기 버튼을 눌렀을때 동작을 오버라이드 하는것)
+
+ㄴ<관련 실습: flutter_navigator_pushnamed_practice 프로젝트>
+route
+/one
+/two
+/one 페이지에서 /two 페이지로 이동, pushNamed 데이터 전송"안녕하세요"
+pop 데이터 전송 "돌려받았습니다"
+다하면 push, pop 할때 다른 타입의 데이터 보내보기(예를들면 List, Map 타입 등)
+
+플러터 - UI 프레임워크
+context -> UI를 그려주는 역할 화면들과 연관되어 있음
+
+showToast ->화면 아래쪽의 한줄정도되는 공간(잠깐 안내메세지 띄울때 주로 사용)
+SizedBox -> 버튼에 패딩을 주고싶을때 한쪽만 공간을 주면 되는경우 빈공간을 채울 박스역할
+
+리스트의 map은 꼭 이해하기
+<flutter_basic_1 프로젝트>
+ㄴmain/first_page/second_page/third_page 파일들 이해하기
+
+<gorouter:flutter_gorouter_v1 프로젝트>
+
+<통신>통신하기전에는 더미데이터로 데이터를 만들어보는게 좋음
+1단계: http-Hook
+flutter_http_1 프로젝트
+ㄴ<실습:https://jsonplaceholder.typicode.com/users 페이지 파싱 및 출력하기>
+(id, name, email값 까지만)/flutter_http_1_1 프로젝트
+
+
+2단계: http-Hook+model
+3단계: http-Hook+model+repository
+4단계: http-Provider+model+repository

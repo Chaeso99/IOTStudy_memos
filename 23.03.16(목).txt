@@ -1,0 +1,16 @@
+23.03.16(목)
+<이클립스 DB연동>
+이클립스 자체가 DB로 만들어진 툴이라서 이클립스에서 간단하게 DB연동이 가능하다.
+
+검색->데이터 소스 익스플로러->데이터베이스 커넥션즈 우클릭-> new->
+mysql선택->new driver definition(오른쪽위에 원안에 십자가모양)클릭->JAR List 클릭->
+원래있던거 삭제->Add JAR/Zip 클릭 후 MySQLConnector 선택(버전은 5.0이나 5.1이나 상관없음)
+->원래 오류뜸->Properties의 Database/URL 맨 끝/유저네임/패스워드 수정(본인 DB 설정과 맞게)
+->다시 DBConnections에서 우클릭하고 new 하고 mysql 고르면 아까 프로퍼티에 쳤던값들이 들어가
+있는데 save password 체크박스 체크하고 testconnection 누르면 성공되어야함
+데이터 소스 익스플로러에서 mydb2-schemas-mydb2-tables 순으로 타고 내려오면 보여야함
+->위쪽 connection profile에 Type 설정하면 name에 new mysql Database에 mydb2 떠야함
+설정하고 코드공간에 우클릭해서 ExcuteAll 하면 SQL Results 창에 결과들이 뜬다.
+=>다른 SQL 툴 켜서 새로고침 해보면 테이블들이 생겨있음
+
+src/main/java 밑의 guestbook 폴더와 안의 파일들 작성

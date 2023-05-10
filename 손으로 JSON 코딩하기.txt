@@ -1,0 +1,17 @@
+[손으로 JSON 만들기]:json은 String임
+확인하는법:브라우저 켜서 F12 - 콘솔 누르고 > 에다가
+JSON.parse("{\"idx\" : 1 }"); 	JSON.parse 안에 내가 적은 코드 넣어보기 제대로 나오면
+잘 만든거임
+
+TempDTO{
+  private Integer idx;
+}
+
+"{\"idx\" : 1 }"
+---------------------------------------------
+ResDTO{
+  private Integer code;
+  private String message;
+}
+
+"{\"code\" : 1, \"message\" : \"하이\"}"

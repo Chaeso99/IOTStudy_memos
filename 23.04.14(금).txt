@@ -1,0 +1,9 @@
+23.04.14(금)
+<Myactivity.Mgr 밑에>
+business
+task
+theme
+recentseen
+jjimlist
+내가 가입한 모임/클래스
+테이블들이 들어감(내활동 페이지)

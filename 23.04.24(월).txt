@@ -1,0 +1,66 @@
+23.04.24(월)
+
+[정리하기]
+- H2 데이터베이스 (메모리 DB)
+자바로 작성된 오픈소스 RDBMS 관리 시스템. 따로 설치가 필요없고 용량이 매우 가벼우며 웹용 콘솔을 제공하므로 개발용 로컬 DB로 사용하기 좋다.(로컬, 테스트 환경에서 많이 사용), SQL 과 JDBC API를 지원함
+
+- Mybatis 프레임워크
+자바 기반의 오픈소스 ORM(Object-Relational Mapping) 프레임워크로 SQL 쿼리와 자바 객체를 매핑하여 DB 연동 작업을 쉽고 간편하게 처리하도록 도와줌(SQL쿼리를 작성하는 대신 XML 또는 어노테이션을 사용하면 됨). 간편한 사용, 대규모 어플에서도 높은 성능 발휘가 장점
+
+- application.properties
+스프링 프레임워크에서 사용되는 설정 파일. key=value 형식으로 구성됨. 이 파일에서 DB 연결 정보, 서버 포트, 로깅 수준 등을 설정가능.
+- application.yml
+스프링 프레임워크에서 사용되는 설정 파일. YAML 형식으로 작성되며, 들여쓰기를 이용해 구조를 표현함. application.properties와 동일한 설정 정보를 구성가능
+
+- @RequestMapping
+HTTP 요청과 메소드를 매핑하는 어노테이션. 해당 URL경로로 요청이 들어오면 어떤 메소드가 처리할지 매핑가능.
+- @RequestParam
+HTTP 요청 파라미터를 메소드의 파라미터로 매핑하는 어노테이션.이를 이용해 URL 쿼리 파라미터나 POST요청 데이터를 파라미터로 전달가능.
+- @PathVariable 
+URL경로의 일부를 메소드의 파라미터로 매핑하는 어노테이션. 이를 이용하여 동적인 URL 처리가능.
+- @ModelAttribute
+요청 파라미터를 객체에 바인딩하는 어노테이션. 이를 이용하여 요청 파라미터를 자바 객체로 변환가능.
+- @RequestBody
+HTTP 요청 본문을 메소드의 파라미터로 매핑하는 어노테이션. 이를 이용하여 JSON이나 XML과 같은 복잡한 데이터 전달가능.
+- @ResponseBody
+메소드의 반환 값을 HTTP 응답 본문으로 변환하는 어노테이션. 이를 이용하여 JSON이나 XML과 같은 데이터 반환가능. RESTful API를 개발할 때 매우 유용함
+--------------------------------------------------------------------------------------------------[수업]
+2~3주후부터 스프링 프로젝트 들어갈것임. 우리가 해야할게 많음
+- 기본 CRUD - 데이터 가져오기/입력하기/수정하기/삭제하기
+오늘은 TODOLIST 만들기 할것임(화면은 제공, 데이터 받아서 띄우고 집어넣고 등의 기능을 만들것임)▽
+1.TODOLIST 화면 출력하기
+2.H2 DB 연결하기
+3.Mybatis 프레임워크 연습하기
+4.REST API 통신 만들기
+5.API 버전 올려보기
+
+- MyBatis / JPA (둘다 데이터베이스, 반반정도 사용함)
+- 시큐리티 - (세션, 소셜로그인, JWT)
+
+<VSCODE로 프로젝트 만들기>
+컨트롤 쉬프트 P 눌러서 java create 검색 -> Java:Create Java Project -> Springboot ->Gradle ->2.7.11-> ... 여러가지 옵션들 선택
+
+<programcj/my 프로젝트>
+build.gradle의 dependencies 안의 org.mybatis, com.h2database 어쩌고 하는 내용 들어간 문장들 주석처리
+
+스프링부트는 JSP 템플릿이 퇴출되었음 기본적으로는 JSP를 못쓰고 thymeleaf(.html)를 가장 많이 사용함.
+JSP를 쓸려면 설정을 해줘야한다.
+보통 application.properties 보다 application.yml을 더 많이 사용함. (서버 관련 중복된 내용이 프로퍼티스에는 여러개 들어가야하는데 yml엔 아니라서 가독성 승리)
+
+프로젝트 만들때는 화면부터 다 만들어놓고 기능구현 하는것이 편하다.
+
+http://localhost:6060/todoList    <=실행 주소
+JSP가 아닌 다른 파일들은 resources안에 들어가는데 jsp파일들만 webapp/WEB-INF/views에 들어가야함
+
+CREATE TABLE PUBLIC.TODO (
+	IDX INTEGER NOT NULL AUTO_INCREMENT,
+	CONTENT CHARACTER VARYING NOT NULL,
+	DONE_YN CHARACTER(1) NOT NULL,
+	DELETE_YN CHARACTER(1) NOT NULL,
+	CREATE_DATE TIMESTAMP NOT NULL,
+	UPDATE_DATE TIMESTAMP,
+	DELETE_DATE TIMESTAMP,
+	CONSTRAINT TODO_PK PRIMARY KEY (IDX)
+);
+CREATE UNIQUE INDEX PRIMARY_KEY_2 ON PUBLIC.TODO (IDX);
+

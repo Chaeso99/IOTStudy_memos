@@ -1,0 +1,12 @@
+23.03.30(목)
+boardMgr.java/read.jsp 수정
+update.jsp 생성(강사님이 파일 주심)
+BoardUpdateServlet.java 생성
+
+수정할때 서블릿에서 방금 입력한 비번이랑 DB의 비번이랑 비교해서 일치하면 수정되고 아니면 다시 수정페이지로 돌아와서 비번 재입력하라고 할것임 /수정하기 페이지는 post방식임
+
+filename을 받아올때는 multi.getParameter가 아니라 multi.getFilesystemName을 사용해야함
+
+삭제:원래 교재에는 복잡한 방식으로 되어있음. 우리는 delete서블릿을 만들어서 간편하게 처리할것(게시글의 첨부파일 옆에 비번입력양식을 넣을것 read.jsp에)
+
+BoardUpdateServlet 복사해서 BoardDeleteServlet만듬(@WebServlet 옆의 내용 수정)

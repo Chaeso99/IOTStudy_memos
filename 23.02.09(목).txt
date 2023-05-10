@@ -1,0 +1,15 @@
+23.02.09(목)
+<오전수업>
+이클립스와 오라클 연동하기(member2파일)
+mysql 전용 드라이버 클래스가 있는것처럼 oracle전용 드라이버 클래스가 있음
+(ojdbc8.jar 파일) 
+편집툴로 오라클은 SQL Developer, MySQL은 mysqlworkbench 사용하는경우가 많음    
+private String _driver = "oracle.jdbc.driver.OracleDriver",
+    _url = "jdbc:oracle:thin:@localhost:1521:xe", //1521은 포트번호, xe는 SID
+    _user = "scott", //계정명
+    _password = "tiger"; //비번
+
+오전까지 팀별 DB설계 제출 1차 강사PC에 프린트 연결되어 있으니까 필요하면 말하기
+강사님 방에서 회의해도됨
+
+<오후수업>

@@ -1,0 +1,36 @@
+23.04.07(금)
+오전- 쇼핑몰 마무리, 팀별 DB설계 미팅
+오후- 시험, 8교시에 자리변경
+--------------------------------------------------------------------------------------------------
+[수업]
+쇼핑몰 프로그램 OrderMgr.java
+주문:lombok으로 처리
+spring:dto/vo
+java:mgr
+
+lombok은 spring에서 사용하는 기술인데 jsp에서도
+mgr에 public OrderBean() {}
+	
+	public OrderBean(int no, int productNo, int quantity, 
+			String date, String state, String id) {
+		this.no = no;
+		this.productNo = productNo;
+		this.quantity = quantity;
+		this.date = date;
+		this.state = state;
+		this.id = id;
+	} 처럼 선언하고
+
+mgr의 쿼리문 아래에서	while(rs.next()) {
+				vlist.addElement(new OrderBean(
+						rs.getInt("no"), 
+						rs.getInt("productNo"), 
+						rs.getInt("quantity"), 
+						rs.getString("date"), 
+						rs.getString("state"), 
+						rs.getString("id")));
+			} 처럼 사용가능
+
+[포토블로그(앱UI위주)] 바탕화면의 jspppt폴더에 photo_blog.pdf 파일에 설명있음
+ch19 패키지 및 폴더 생성, table.sql 실행, RandomMgr 실행(자바 어플리케이션으로)
+, DBConnectionMgr.java지우고 다른 패키지에서 복사해오기, login.jsp 실행

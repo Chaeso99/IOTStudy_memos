@@ -1,0 +1,2 @@
+Exception 처리를 위한
+테스트 text 파일입니다.

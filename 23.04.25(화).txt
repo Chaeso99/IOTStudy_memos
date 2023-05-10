@@ -1,0 +1,26 @@
+23.04.25(화)
+[공부해서 정리하기]
+https://mybatis.org/mybatis-3/ko/sqlmap-xml.html <=MyBatis 홈페이지
+1.Mapper XML 파일/2. 동적 SQL
+
+1.Mapper XML 파일
+상대적으로 간단하다. 특히 JDBC 코드에 비해서는 굉장히 간단하다. SQL Map XML 파일은 첫번째 엘리먼트만을 가진다. (select/delete/update/insert/sql/cache/sql 등)
+
+[수업]
+만들던 my 프로젝트의 설정파일들을(MybatisConfig 등) 없애서 간단하게 만들것임
+1.mybatisconfig 파일 제거	"classpath:mapper/*_mapper.xml"
+2.resultmap 제거
+3.string을 json으로 변경
+
+내가 뭐 잘못한게 없는데 빨간색 에러 나면 Gradle창 열어서(인텔리제이 기준 오른쪽)Tasks 폴더안의 build 폴더안의 clean 한번 실행하고 원래 프로그램 실행해보기
+객체는responseBody하면json이 된다
+
+Body 안에
+{
+     "idx" : 1,
+     "search" : "asdf"
+}
+적고 send
+
+쌍따옴표 말고 홑따옴표를 써도 문자열로 인식하기때문에 .charAt()을 써서 바꿔줘야한다.
+

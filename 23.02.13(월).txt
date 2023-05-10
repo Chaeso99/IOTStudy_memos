@@ -1,0 +1,49 @@
+23.02.13(월)
+<오전수업>
+이번주는 저번달 배운거 복습, 프로젝트 진행
+깃 협업:레포지토리 만들고 콜라보레이터=>인바이트, 초대
+
+<깃 협업 방식>작은 프로젝트는 마스터 브랜치 하나로 진행, 실무에서 큰 프로젝트는
+브랜치 나눠서 올리고 팀장이 merge
+레포지토리 생성, 폴더 연결 => Settings => Collaborators => Add people
+협업할때는 커밋 내용에 어떤부분 수정,추가, 삭제했는지 잘 적어놓기
+
+팀원들은 깃허브 가입한 이메일 가서 초대 수락(이메일 기억안나면 Settings의 Email칸)
+
+git clone .
+
+<컴퓨터 켜서 작업 시작하면 무조건 다운부터 하고 작업시작>
+git pull origin master //다운로드 받는것
+--본인 작업 진행--
+팀원에게 본인작업 push한다고 말하고!!!
+git pull origin master
+git add .
+git commit -m "내용"
+git push origin master
+----------------------------------------------------------------------------
+git - merging / conflict 떴을 때 수정하는 툴 선택 -> vscode 선택(VS코드 쓰면 색으로 변경부분을
+알려줌, current change는 내가 작성, incoming change는 상대가 작성한거, both change는 둘다)
+git config --global core.editor "code"
+
+두명 이상이 같은 파일의 같은 라인 수정시 문제 발생(라인 다르면 상관없음)
+CONFLICT:충돌
+Aborting 에러:중지된것
+Updates were rejected~:업데이트 실패 이유
+겹치는 부분 - 어느 코드를 적용할지 회의 후 결정(적용 후 add commit push)
+
+2. 상대가 수정해서 올린걸 내가 안받고 올리려고 하다 에러났을때 
+3. 풀 하고 에러 안나면 그냥 push 하면 됨
+4. conflict 뜨면 해결하고 저장, add commit push
+
+<요약>
+-컨플릭트가 없을 시-
+애드 커밋 푸시 -> 리젝트 
+풀 -> 노머징(NO CONFLICT)
+푸시
+ 
+-컨플릭트가 있을 시-
+애드 커밋 푸시 -> 리젝트
+풀 -> 머징(CONFLICT)
+CONFLICT해결 저장 애드 커밋 푸시
+
+프로그램에 윈도우빌더 쓰면 편함

@@ -1,0 +1,11 @@
+23.03.17(금)
+GuestBookMgr.java 메소드 작성
+listGuestBook 메서드에서 while(rs.next())의 코드가 한번 돌고 다음번 돌때 객체가 새로 생긴다.
+(원래거랑 덮어쓰기 되는게 아님) vlist라는 벡터에 주소값이 넘어오기 때문임 예를들어 100번지
+101번지 102번지..
+
+postGuestBook.jsp/showGuestBook.jsp
+1.저장(글쓰기)
+2.로그인 부분, url 리턴
+
+@WebServelet의 이름이 같으면 오류남(실행이 안됨)

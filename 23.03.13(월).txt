@@ -1,0 +1,93 @@
+23.03.13(월)
+https://velog.io/@jaybon/flutter-%EA%B8%B0%EC%B4%88-%EC%A0%95%EB%A6%AC
+[플러터 기초 정리]
+abstract class
+추상클래스:상속받는 클래스의 종류를 특정함
+(인간과 호랑이는 동물이라는 공통 추상클래스를 가짐
+
+암시적 인터페이스
+플러터는 interface 예약어가 없음, class 또는 abstract class로 암시적 인터페이스 만들어서 씀
+인터페이스는 인간의 눈, 입, 팔, 다리/TV리모콘의 채널변경버튼, 음량변경버튼 등임.
+클래스 또는 추상 클래스는 인터페이스를 반드시 구현해야함. implements를 사용해서 구현
+class Human implements Eye, Mouth, Arm...
+
+mixin
+플러터에서 클래스는 단 하나의 클래스를 상속 받을 수 있지만 부가적인 클래스의 속성을
+섞을 수 있다. with를 사용함
+class TeslaCar extends Car with AI, Robot ...
+
+yaml(yml) 확장자
+보통 설정할때 사용, 들여쓰기 해야됨, "key: value"형식 사용 등 형식 잘 맞춰서 써야함
+yaml파일 수정후엔 무조건 Pub get 누르기
+
+Container
+다른 위젯을 그룹화하고 배치하는데 사용. 재사용 가능한 레이아웃 구조 만들기 가능
+
+SizedBox
+특정 크기의 상자를 만드는 위젯. Container와 비슷함
+
+Column(위젯 위에서 아래로 배치)
+Row(위젯 좌우로 배치)
+Stack(위젯들을 겹쳐서 배치) 
+---------------------------------------------------------------------------------------------------------
+주로 작업할 파일:pubspec.yaml/pubspec.lock/lib폴더/android폴더/ios폴더
+android폴더에서는build.gradle(android 밑의 것)/androidmanifest.xml/MainActivity
+ios폴더에서는 info.plist/appdelegate.swift
+pubspec.lock은 자동으로 작성되니까 우리가 건드리지 말기. 깃에 파일을 올릴땐 
+pubspec.lock, pubspec.yaml 두 파일은 꼭 올려야됨.
+
+웹은 개발하고나서 시간이 지나도 별로 업데이트 할게 없음.
+ㄴ유지보수-신규기능/버그수정
+----------------------------------------------------------------------------------------------------------
+실습(simple_practice 프로젝트) 1.계산기 앱 2.동의 모바일 앱 3.알람 앱
+4.HRD 나의정보
+
+앱은 휴대폰 기종/안드로이드 IOS 버전/라이브러리 버전 등등이 많이 바뀌어서
+ㄴ유지보수-모든 휴대폰 화면 대응/안드, IOS 버전 대응/신규기능/버그수정
+
+의존성/종속성/Dependency
+:라이브러리를 만들 때, 다른 라이브러리를 사용. A/B/C/D/E 라이브러리가 있을 때
+A라이브러리를 가져옴 A라이브러리는 B/C라이브러리를 사용해서 에러가 남
+B라이브러리는 D라이브러리를 사용/C라이브러리는 E라이브러리 사용
+위와같이 너무 많이 가지가 뻗어나가면 관리 힘듬..
+종속성을 이용하면, 라이브러리가 필요로 하는 모든 하위 라이브러리를 알아서 다운로드하고
+관리해줌. ex)Maven/Gradle(java,코틀린)/pub(flutter)
+
+pub.dev <-플러터/다트 라이브러리 검색 사이트. 필요한 라이브러리가 거의 다 있으니까
+잘 가져다 쓰면 된다 적용하는방법:라이브러리 클릭해서 Installing->명령어 복사해서
+안스 화면 아래쪽의 Termianl에 코드 붙여넣기 예) flutter pub add bloc
+
+버전 앞에 아무것도 없으면 - 버전 고정
+버전 앞에 ^ 있으면 - 호환 가능한 최신 버전을 가져옴 예)8.*.*
+버전 앞에 ~ 있으면 - 버그가 수정된 최신 버전을 가져옴 예)8.1.*
+앱 개발 시 ^ 사용
+앱 개발 완료 시 기호 없앰(잘돌아가는 버전 유지 위함)
+앱 유지보수 시 ^ 또는 ~ 또는 최신버전 업데이트
+
+위젯:화면을 그리는 단위. 위젯 클래스를 사용하면 build 메소드가 실행된다.
+html의 태그와 같은 역할.
+
+stateless 위젯은 고정된 화면을 만든다.
+stateful 위젯은 다른 상태를 실행. State 안의 변수는 관찰되고 변수의 값이 바뀌면
+화면이 바뀐다. Stateful 변수를 변경할 때는 무조건 setState 함수 사용
+프로그램 실행을 위해 main이 필요함.
+플러터는 프레임워크->제어의 역전(IOC)
+runApp:앱을 실행시켜줘(개발자가 프레임워크에 요청/매개변수는 Widget)
+const는 컴파일 시점에 데이터 고정-데이터가 바뀌지 않는 화면일 경우만 사용
+
+MaterialApp:안드로이드 스타일 앱 제작 위젯
+ㄴ title:앱의 제목 theme:앱의 색상, 글꼴/ThemeData 객체
+routes:생략 locale:앱의 언어를 기종 사용 언어에 맞게 설정 가능
+home:앱 실행시 표시되는 위젯
+Scaffold:바닥. 앱 구조의 기반을 만드는 위젯. 꼭 쓰는게 좋음
+AppBar:
+Drawer:햄버거 버튼+버튼누르면 나올 위젯 리스트
+bottomNavigationBar: BottomNavigationBar,(items[]):
+FloatingActionButton(onPressed):
+SafeArea:폰 기종마다 다른 노치, 알림바 등을 피해서 화면을 노출한다. 꼭 쓰는게 좋음
+
+위젯의 자식 3가지 
+위젯의 자식들은 무조건 위젯임
+1.단일 위젯 home/body/child
+2.다중 위젯 items/children
+3.자식 위젯 없음 - Text/Image 등

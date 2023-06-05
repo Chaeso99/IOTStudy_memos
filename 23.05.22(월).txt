@@ -1,0 +1,22 @@
+23.05.22(월)
+프로젝트 제작
+
+레포지토리는 class가 아닌 interface임. 
+@Repository
+@Mapper
+public interface MemberRepository {
+
+}
+
+jsp 파일의 <%= 변수명 %> 들은 변수를 따로 선언해줘서 fetch, .then, filter, queryselector 등으로 가져오고   <span id="userId"></span>'s work 이런식으로 사용(my프로젝트 참고)
+
+href 링크에 경로를 memberManage.jsp 말고 memberManage 처럼 .jsp 빼고 적어야함
+
+ApiV1은 화면의 데이터 post, put, delete 등 하는 용도. 단순히 화면만 뿌리면 필요없음
+
+admin 테이블을 member 테이블로 통합, 기존 moimmember테이블을 Role 테이블로 개편(컬럼: idx, memberId, role, create_date) role 컬럼에는 가입한 모임 번호, member, admin 등이 들어감(같은 아이디 데이터가 여러번 들어갈 수 있음). 같은 모임 번호의 회원들 중에서 create_date가 가장 빠른 사람이 모임장임.
+ㄴ 이걸 통해서 회원/관리자 검사, 중복방지, 모임 가입 권한 검사, 같은모임 중복가입 방지, 모임장여부 검사, 모임장이 모임 개설시 모임장이 자동가입 트리거 등등 처리 가능
+
+벡터리스트를 리턴할땐 entity를 resultType으로 설정하고 entity안에 list를 넣으면됨
+매개변수를 낱개로 받는건 딱히 쓸모없는것(정렬이나 검색할때 등)할때만
+데이터를 입력해서 넣는건 TODO예제처럼 DTO를 만들어서 넣는게 좋음

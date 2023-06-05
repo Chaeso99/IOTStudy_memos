@@ -1,0 +1,13 @@
+06.02 회원가입
+<작업파일>
+role_mapper.xml(주석)
+signup.jsp
+schema.sql(임시로 memberAddr Null 가능하게 해둠)
+member_mapper(변수명 오타 수정)
+AuthDTO.java(Integer는 @NotBlank 대신 @NotNull 써야됨)
+RoleEntity.java
+
+//AuthControllerApiV1.java 수정(joinProc 메소드)
+-----------------------------------------------------------------------------------
+유효성 검사 확인필요
+

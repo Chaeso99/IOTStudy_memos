@@ -1,0 +1,31 @@
+23.05.29(월)
+moim컨트롤러 Mapping 뒤에 {moimNum}등 들어가야함
+컨트롤러, 서비스 안된거 다 작업
+ㄴzipcode, 스케줄조인, role, recentseen, 모임스케줄, 모임포토, 모임조인, 멤버보드, 멤버
+, 찜리스트, 클래스코멘트, 보드코멘트, 모임멤버
+
+멤버:영문형
+
+화면나오는건 @Controller
+데이터 쏘는건 @RestController  <- 비동기 통신에 사용
+붙여서 컨트롤러ApiV1 이런식
+
+리파지토리, 매퍼파일 연결
+엔티티는 DB와 같게 만들기
+서비스와 컨트롤러는 서로 연결되어있음 api컨트롤러들은 데이터 자체를 리턴 
+컨트롤러는 서비스에서 데이터를 가져와서 모델에 넣는역할 todolist안의 컨트롤러apiv3 스타일로 컨트롤러api 만들기
+
+직접만드는 모든 int는 integer로 변경해야함
+
+화면에서 어떤 mgr에서 데이터를 가져왔는지 분석
+
+Jjimlist - 데이터조작 O
+recentseen -  데이터조작 O
+role - 데이터조작 O
+
+@RequestBody 붙이면 주소창에 값 안넣어도 됨. @RequestBody는 Json데이터를 받아오는 어노테이션
+주소창에 붙여야되는건 @PathVariable, @RequestParam
+
+6 7 3 5 9
+6 3 5 7 9
+3 5 6 7 9

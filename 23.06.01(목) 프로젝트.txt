@@ -1,0 +1,21 @@
+//회원가입 - 해야하는 기능
+ID중복확인	//Auth서비스, Member레포지토리, idCheck.jsp
+
+전화번호인증 //원래 안되어있었음.. API로?
+
+우편번호찾기 //API로? 확인필요
+
+관심지역 고르기 //
+
+사진 선택하기 <-지금 사진업로드 안됨, 일단 적당히 아무이름 또는 NULL 가능하게 컬럼 수정해서 만들기
+
+가입하기
+
+비밀번호 저장은 그냥 저장하면 DB에 알아서 암호화 되어서 저장됨, 복호화가 안되어서 비밀번호 찾기가 안되니까 비밀번호 변경으로 만들어야됨
+---------------------------------------------------------------------------------------------
+<script>
+	const memberId =data.member.memberId;
+	document.querySelector("#memberId").innerHTML = memberId;
+</script>
+
+'/signup/idCheckPage?id=' + id
